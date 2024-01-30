@@ -1,0 +1,46 @@
+.side-email {
+  position: absolute;
+  // margin: 2rem;
+  writing-mode: sideways-rl;
+  display: inline-block;
+  left: 1.5vw;
+  text-decoration-skip-ink: auto;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  position: absolute;
+  top: 45vh;
+  font-size: 1.2rem;
+  font-weight: 700;
+  &:hover {
+    scale: 1.1;
+    color:rgba(255, 187, 0, 0.792);
+  }
+}
+.email-container {
+  -webkit-box-align: center;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+}
+a svg {
+  width: 20px;
+  height: 20px;
+  transition: all 300ms;
+  &:hover {
+    
+  scale: 1.2;
+  color:rgba(255, 187, 0, 0.792);
+}
+}
+.social-container {
+  position: absolute;
+  top: 30vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+    left: 1.5vw;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}

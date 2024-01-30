@@ -1,0 +1,183 @@
+.contact-container {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  background: linear-gradient(180deg, rgba(212,212,212,1) 48%, rgba(255,240,183,0) 100%);
+}
+.form-container {
+  flex-grow: 1;
+  padding: 15px;
+  max-width: 90%;
+  display: flex;
+}
+.contact-form {
+  display: flex;
+  height: 60vh;
+  max-width: 50vw;
+  flex-direction: column;
+  border-radius: 45px;
+}
+
+.contact-container div .text-container {
+  display: flex;
+  flex-grow: 1;
+  margin: 30px;
+  flex-direction: column;
+  max-width: 50%;
+  justify-content: center;
+  max-height: 45vh;
+  text-align: justify;
+  flex-grow: 1;
+}
+::placeholder {
+  color: #fff;
+  font-size: 20px;
+}
+.input-form {
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 90%;
+  width: 600px;
+  border-radius: 8px;
+  height: 100px;
+  border-color: transparent;
+  border-style: none;
+  text-align: center;
+  margin: 10px;
+  background-color: #ffffff57;
+}
+.input-form-text {
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 90%;
+  width: 600px;
+  height: 200px;
+  border-radius: 15px;
+  border-color: transparent;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px;
+  justify-content: center;
+  justify-items: center;
+  resize: none;
+  background-color: #ffffff57;
+}
+.contact-container div .text-container p:nth-of-type(1) {
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: 2rem 1rem;
+}
+
+.text-container p:nth-of-type(2) {
+  font-size: 0.6rem;
+  margin-bottom: 3rem;
+}
+.form-container div .btn-form {
+  list-style-type: none;
+  float: left;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 20px;
+  visibility: visible;
+  background: rgba(4, 255, 217, 0.753);
+  animation: gradient 2s ease infinite;
+  transition: 0.5s;
+}
+.form-container div .btn-form:hover {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(0deg, rgba(255, 187, 0, 0.792), rgba(4, 255, 217, 0.753),  rgba(255, 187, 0, 0.792));
+  background-size: 200% 400%;
+}
+// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+.box {
+  position: relative;
+  width: 220px;
+  height: 48vh;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.box::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(35deg);
+  transition: 0.5s;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(35deg);
+  transition: 0.5s;
+  filter: blur(30px);
+}
+
+.box:hover:before,
+.box:hover:after {
+  transform: skewX(0deg) scaleX(1.3);
+}
+
+.box:before,
+.box:after {
+  background: linear-gradient(
+    315deg,
+    rgba(255, 187, 0, 0.792),
+    rgba(0, 162, 138, 0.342)
+  );
+}
+
+.box .content {
+  position: relative;
+  max-width: 40vw;
+  height: 40vh;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  z-index: 1;
+  transform: 0.5s;
+  color: #fff;
+  display: flex;
+  margin-right: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 200% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
