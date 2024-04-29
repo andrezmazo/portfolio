@@ -1,4 +1,3 @@
-
 # Portfolio
 
 Welcome to my personal portfolio!
@@ -11,7 +10,7 @@ Project built with React Js, Javascript, HTML, and SASS.
 
 * **About Me:** A brief introduction.
 * **Experience:** Details about my work experience.
-* **Skills:** List of skills and technologies I have experience with and feel comfortable working with.
+* **Technologies:** List of skills and technologies I have experience with and feel comfortable working with.
 * **Projects:** A selection of projects I have worked on, each with a brief description and links to their repositories or online demonstrations.
 * **Contact:** Contact form with messaging service.
 
