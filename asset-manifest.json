@@ -1,20 +1,25 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.7b02baa8.css",
-    "main.js": "/portfolio/static/js/main.6cc16701.js",
+    "main.css": "/portfolio/static/css/main.12e9a628.css",
+    "main.js": "/portfolio/static/js/main.3b4b81b4.js",
+    "static/media/SATMED.gif": "/portfolio/static/media/SATMED.6e87b1ef5164b35e02c1.gif",
     "static/media/mountains.png": "/portfolio/static/media/mountains.aac1275c8e69aac3706f.png",
     "static/media/sky.png": "/portfolio/static/media/sky.9db07af2dacbe29e00c1.png",
+    "static/media/ATV.gif": "/portfolio/static/media/ATV.d65cdbacfaa9d27bdda2.gif",
     "static/media/buildings1.png": "/portfolio/static/media/buildings1.0c6099f22c1af37f1238.png",
     "static/media/buildings2.png": "/portfolio/static/media/buildings2.21b2f1318705d9f1981d.png",
     "static/media/Petshop.jpg": "/portfolio/static/media/Petshop.3e9bb56d077d499548dd.jpg",
     "static/media/pic.jpg": "/portfolio/static/media/pic.c346edddf9c5e92cdeba.jpg",
-    "static/media/pc-pic.png": "/portfolio/static/media/pc-pic.e1dd2c33e2e3b3fd9059.png",
+    "static/media/pc-pic.png": "/portfolio/static/media/pc-pic.c317c04002aa6cdefeeb.png",
+    "static/media/SISCARAC.png": "/portfolio/static/media/SISCARAC.d58542c5dc72ab274b31.png",
+    "static/media/SATMED.jpg": "/portfolio/static/media/SATMED.71f0928a6fd55262c6bc.jpg",
+    "static/media/ATV.jpg": "/portfolio/static/media/ATV.5245b768147d35666c8e.jpg",
     "index.html": "/portfolio/index.html",
-    "main.7b02baa8.css.map": "/portfolio/static/css/main.7b02baa8.css.map",
-    "main.6cc16701.js.map": "/portfolio/static/js/main.6cc16701.js.map"
+    "main.12e9a628.css.map": "/portfolio/static/css/main.12e9a628.css.map",
+    "main.3b4b81b4.js.map": "/portfolio/static/js/main.3b4b81b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.7b02baa8.css",
-    "static/js/main.6cc16701.js"
+    "static/css/main.12e9a628.css",
+    "static/js/main.3b4b81b4.js"
   ]
 }
