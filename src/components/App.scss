@@ -39,6 +39,10 @@ html {
   box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
 }
 
+input{
+  border-width: 0px !important;
+  border-style: none !important;
+}
 .title-section {
   font-family: "Courier New", Courier, monospace;
   color: #636363;
@@ -86,6 +90,10 @@ a {
   .section-box {
     flex-wrap: wrap;
   }
+  .box-container {
+    flex-wrap: wrap;
+
+  }
   .technologies-container .section-box{
     flex-direction: column-reverse;
   }
@@ -93,6 +101,37 @@ a {
   //   animation: App-logo-spin infinite 20s linear;
   // }
 }
+
+@keyframes circularShadow {
+  0% {
+    filter: drop-shadow(-20px 0px 30px rgba(255, 187, 0, 0.582));
+  }
+  12.5% {
+    filter: drop-shadow(-10px -10px 30px rgba(255, 187, 0, 0.582));
+  }
+  25% {
+    filter: drop-shadow(0px -20px 30px rgba(255, 187, 0, 0.582));
+  }
+  37.5% {
+    filter: drop-shadow(10px -10px 30px rgba(255, 187, 0, 0.582));
+  }
+  50% {
+    filter: drop-shadow(20px 0px 30px rgba(255, 187, 0, 0.582));
+  }
+  62.5% {
+    filter: drop-shadow(10px 10px 30px rgba(255, 187, 0, 0.582));
+  }
+  75% {
+    filter: drop-shadow(0px 20px 30px rgba(255, 187, 0, 0.582));
+  }
+  87.5% {
+    filter: drop-shadow(-10px 10px 30px rgba(255, 187, 0, 0.582));
+  }
+  100% {
+    filter: drop-shadow(-20px 0px 30px rgba(255, 187, 0, 0.582));
+  }
+}
+
 // @media (max-width:768px) {
 //   .cards-container {
 //     flex-direction: row;

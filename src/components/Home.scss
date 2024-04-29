@@ -101,13 +101,29 @@
 .lastname-parallax h1:nth-of-type(1) {
   display: flex;
   position: absolute;
-  text-shadow: rgb(0, 0, 0) 5px 5px 8px;
+  text-shadow: rgb(0, 0, 0) 5px 5px 5px;
   color: #ffffff;
   left: 50%;
-  top: 65%;
+  top: 67%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
   font-weight: 300;
   font-size: 5.89rem;
 }
 
+@media (max-width:750px) {
+  .name-container h1:nth-of-type(1) {
+    font-size: 2.5rem;
+  }
+  
+  .name-container h1:nth-of-type(2) {
+    font-size: 6rem;
+  }
+  
+  .lastname-parallax h1:nth-of-type(1) {
+
+    top: 58%;
+    font-size: 3.2rem;
+  }
+  
+}

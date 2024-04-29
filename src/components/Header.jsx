@@ -42,7 +42,7 @@ const headerHandler = position === 0 ? "site-header hide-bar" : ( visible ? "sit
           <a href="#Contact">Contact</a>
         </li>
         <li>
-          <a href="/CV-Andrés Zapata Mazo.pdf" className="btn-resume">
+          <a href="/CV-AndresZapataMazo.pdf" className="btn-resume">
             Resume
           </a>
         </li>
