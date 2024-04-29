@@ -25,14 +25,9 @@ function Contact() {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <section className="contact-container" id="Contact">
         <div className="box-container neu">
-          {/* <div class="box">
-            <div class="content">
-              <h2>Hover me!</h2>
-            </div>
-          </div> */}
           <div className="text-container center">
             <h3 className="title-section">Contact</h3>
             <h2>Get in touch</h2>
@@ -71,11 +66,7 @@ function Contact() {
                   name="message"
                   id="validationCustom03"
                 ></textarea>
-                <button
-                  className="btn-form"
-                  type="submit"
-                  value="Send"
-                >
+                <button className="btn-form" type="submit" value="Send">
                   Send
                 </button>
               </form>
@@ -83,7 +74,7 @@ function Contact() {
           </div>
         </div>
       </section>
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -1,21 +1,22 @@
-# Portafolio
 
-¡Bienvenido/a a mi portafolio personal!
+# Portfolio
 
-Este repositorio contiene los archivos de mi portafolio personal, donde muestro algunos de los proyectos en los que he trabajado, así como mi experiencia y habilidades.
+Welcome to my personal portfolio!
 
-Proyecto realizado con React Js, Javascript, HTML y SASS.
+This repository contains the files of my personal portfolio, where I showcase some of the projects I have worked on, as well as my experience and skills.
 
-## Contenido
+Project built with React Js, Javascript, HTML, and SASS.
 
-* **A cerca de mi:** Una breve introducción.
-* **Experiencia:** Detalles sobre mi experiencia laboral.
-* **Habilidades:** Lista de habilidades y tecnologías en las que tengo experiencia y me siento cómodo/a trabajando.
-* **Proyectos:** Una selección de proyectos en los que he trabajado, cada uno con una breve descripción y enlaces a sus repositorios o demostraciones en línea.
-* **Contacto:** Formulario de contacto con servicio de mensajeria
+## Content
 
-## Uso
+* **About Me:** A brief introduction.
+* **Experience:** Details about my work experience.
+* **Skills:** List of skills and technologies I have experience with and feel comfortable working with.
+* **Projects:** A selection of projects I have worked on, each with a brief description and links to their repositories or online demonstrations.
+* **Contact:** Contact form with messaging service.
 
-Si deseas ver mi portafolio en línea, puedes acceder al [sitio web](https://andrezmazo.github.io/portfolio/ "https://andrezmazo.github.io/portfolio/").
+## Usage
 
-¡Gracias por tu interés en mi trabajo!
+If you would like to view my portfolio online, you can access the [website here](https://andrezmazo.github.io/portfolio/ "https://andrezmazo.github.io/portfolio/").
+
+Thank you for your interest in my work!

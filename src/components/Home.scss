@@ -46,7 +46,7 @@
 
 .gradient {
   background: linear-gradient(
-    rgba(1, 255, 217, 0) 0%,
+    rgba(1, 255, 217, 0.256) 0%,
     rgba(255, 187, 0, 0) 86%,
     rgb(218, 218, 218) 100%
   );
@@ -79,7 +79,7 @@
 
 .name-container h1:nth-of-type(1) {
   color:#ffffff;
-  text-shadow: rgba(46, 46, 46, 0.623) 1px 0 10px;
+  text-shadow:  rgb(0, 0, 0) 5px 5px 8px;
   font-family: "Courier New", Courier, monospace;
   font-weight: 800;
   top: 18%;
@@ -90,7 +90,7 @@
 
 .name-container h1:nth-of-type(2) {
   left: -58%;
-  text-shadow: rgba(46, 46, 46, 0.623) 1px 0 10px;
+  text-shadow: rgb(0, 0, 0) 5px 5px 8px;
   color: #ffffff;
   top: 24%;
   font-size: 10rem;
@@ -101,7 +101,7 @@
 .lastname-parallax h1:nth-of-type(1) {
   display: flex;
   position: absolute;
-  text-shadow: rgba(46, 46, 46, 0.812) 1px 0 10px;
+  text-shadow: rgb(0, 0, 0) 5px 5px 8px;
   color: #ffffff;
   left: 50%;
   top: 65%;

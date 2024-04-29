@@ -1,0 +1,20 @@
+.badge-container {
+    display: flex;
+    padding: 2px 2px;
+    color: white !important;
+    font-weight: bold;
+    font-size: 1rem;
+    .badge-img {
+        display: flex;
+        height: 22px !important;
+        width: auto !important;
+        border-radius: 3px !important;
+        margin-right: 5px ;
+        color: white !important;
+        &:hover{
+            height: 23px !important;
+        }
+    }
+
+  }
+  
