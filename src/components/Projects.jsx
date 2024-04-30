@@ -21,7 +21,7 @@ function Projects(props) {
   ];
 
   return (
-    <section ref={props.myRef} className="projects-container" id="Project">
+    <section ref={props.myRef} className="projects-container" id="Projects">
       <div className="section-box">
         <div className="text-container center">
           <h3 className="title-section">Projects</h3>

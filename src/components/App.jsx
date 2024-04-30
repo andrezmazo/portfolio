@@ -7,6 +7,8 @@ import Contact from "./Contact";
 import Technologies from "./Technologies";
 import Work from "./Work";
 import Projects from "./Projects";
+import Menu from "./Menu";
+
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.scss";
@@ -60,6 +62,7 @@ function App() {
           <Work />
           <Projects />
           <Contact />
+          <Menu />
           {/* <ParticlesBackground/> */}
         </ParallaxProvider>
       </div>

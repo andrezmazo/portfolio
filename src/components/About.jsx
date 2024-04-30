@@ -10,6 +10,9 @@ function About(props) {
           <img src={pic} className="main-picture" alt="Andrés Zapata Mazo" />
         </div>
         <div className="box-container neu center">
+          {/* <div className="small-picture">
+            <img src={pic} className="main-picture" alt="Andrés Zapata Mazo" />
+          </div> */}
           <div className="text-container center">
             <h3 className="title-section">About me</h3>
             <h2>Hello!</h2>

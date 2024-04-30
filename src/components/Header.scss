@@ -3,7 +3,6 @@ header {
   flex-direction: column;
   height: 50px;
   top: 0;
-  // width: 100vw;
   transition: all 0.4s ease-out;
   h2 a{
     font-size: 1.25rem;
@@ -32,10 +31,8 @@ header {
   height: 50px;
   top: 0;
   transition: top 0.4s ease-out;
-  // width: 100%;
   width: 100vw;
-
-  z-index: 100;
+  z-index: 10;
   ul {
     font-size: 0.75rem;
     position: absolute;
