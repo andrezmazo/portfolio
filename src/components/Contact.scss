@@ -8,12 +8,13 @@ $gradient-end: rgba(0, 162, 138, 0.342);
   display: flex;
   position: relative;
   .section-box {
-    padding: 50px 50px 25px 50px;
     .text-container {
+      flex-grow: 1;
       margin: 30px;
       flex-direction: column;
-      min-width: 280px;
-      max-width: 700px;
+      // width: 50vw;
+      // min-width: 280px;
+      // max-width: 600px;
       justify-content: center;
       max-height: 45vh;
       text-align: justify;
@@ -28,14 +29,7 @@ $gradient-end: rgba(0, 162, 138, 0.342);
       }
     }
     .box-container {
-      height: 55vh;
-      max-height: 90%;
-      display: flex;
-      padding: 15px 50px 15px 50px;
-      width: 60%;
-      flex-grow: 3;
-      min-width: 508px;
-      max-width: 900px;
+      width: 80vw !important;
       .contact-form {
         display: flex;
         width: 100%;
