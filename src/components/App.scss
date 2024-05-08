@@ -28,13 +28,40 @@ html {
   align-items: center;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
+.box-container{
+  display: flex;
+  padding: 30px 30px 50px 30px;
+  max-width: 800px;
+  flex-grow: 3;
+}
+.picture-container {
+  display: flex;
+  max-width: 450px;
+  max-height: 450px;
+  min-width: 250px;
+  animation: circularShadow 2s forwards infinite;
+  min-height: 250px;
+  .main-picture {
+    filter: saturate(0);
+    margin: 50px;
+    border-radius: 50%;
+    display: flex;
+    min-width: 190px;
+    transition: all 300ms;
+    &:hover {
+      filter: saturate(1);
+    }
+  }
+}
+
 .section-box {
+  padding: 50px 50px 25px 50px;
+  max-width: 100vw;
   display: flex;
   align-content: center;
-  // flex-wrap: wrap;
 }
 .neu {
-  border-radius: 50px;
+  border-radius: 45px;
   background: #e0e0e0;
   box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
 }
@@ -56,7 +83,7 @@ h5 {
   font-size: 1rem;
 }
 p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .center {
   align-items: center;
@@ -86,10 +113,19 @@ a {
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 588px) {
   header,
   .email-container {
     display: none;
+  }
+  h2{
+    font-size: 1.5rem !important;
+  }
+  h3{
+    font-size: 1.2rem !important;
+  }
+  p{
+    font-size: small;
   }
   .parallax-group {
     top: -100px;
@@ -107,14 +143,13 @@ a {
     font-size: 2.1rem;
   }
   .section-box {
-    padding: 20px !important;
+    padding: 30px !important;
 
   }
   .box-container {
     flex-wrap: wrap;
-    min-width: 330px !important;
-    min-height: 560px !important;
-    padding: 10px 15px 10px 15px !important;
+    // min-width:80vw;
+    // min-height: 560px !important;
   }
   .picture-container {
     .main-picture{
@@ -126,39 +161,22 @@ a {
   .menu{
     display: block;
   }
-  // .small-picture {
-  //   display: flex;
-  //   position: relative;
-  //   left: 10%;
-  //   top: 10%;
-  //   z-index: 9;
-  //   max-width: 30px;
-  //   max-height: 30px;
-  //   min-width: 10px;
-  //   min-height: 10px;
-  //   animation: circularShadow 2s forwards infinite;
-  //   .main-picture {
-  //     filter: saturate(0);
-  //     border-radius: 50%;
-  //     display: flex;
-  //     min-width: 120px;
-  //     transition: all 300ms;
-  //     &:hover {
-  //       filter: saturate(1);
-  //     }
-  //   }
-  // }
 }
 
 @media (max-width: 1000px) {
+  .picture-container {
+    .main-picture{
+      width: 280px;
+      margin: 10px !important;
+
+    }
+  }
   .section-box {
     flex-wrap: wrap;
     // width: vw;
   }
   .box-container {
-    // min-width: 400px !important;
     flex-wrap: wrap;
-    padding: 10px 20px 10px 20px ;
   }
   .technologies-container .section-box {
     flex-direction: column-reverse;

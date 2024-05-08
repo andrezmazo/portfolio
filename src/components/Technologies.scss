@@ -4,38 +4,10 @@
   display: block;
   position: relative;
   .section-box {
-    padding: 50px 50px 25px 50px;
     .box-container {
-      height: 55vh;
-      max-height: 90%;
-      display: flex;
-      padding: 15px 50px 15px 50px;
-      width: 60%;
-      flex-grow: 3;
-      min-width: 508px;
-      max-width: 900px;
       .text-container {
         flex-direction: column;
         display: flex;
-      }
-    }
-    .picture-container {
-      display: flex;
-      max-width: 450px;
-      max-height: 450px;
-      min-width: 190px;
-      animation: circularShadow 2s forwards infinite;
-      min-height: 190px;
-      .main-picture {
-        filter: saturate(0);
-        margin: 50px;
-        border-radius: 50%;
-        display: flex;
-        min-width: 190px;
-        transition: all 300ms;
-        &:hover {
-          filter: saturate(1);
-        }
       }
     }
   }
