@@ -17,6 +17,7 @@ import ParticlesBackground from "./ParticlesBackground";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  const [isLoading, setIsLoading] = useState(true);
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -24,12 +25,15 @@ function App() {
   const myRef = useRef();
   const [myElementIsVisible, setMyElementIsVisible] = useState();
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      setMyElementIsVisible(entry.isIntersecting);
-      console.log("entry", entry);
-    });
-    observer.observe(myRef.current);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    // const observer = new IntersectionObserver((entries) => {
+    //   const entry = entries[0];
+    //   setMyElementIsVisible(entry.isIntersecting);
+    //   console.log("entry", entry);
+    // });
+    // observer.observe(myRef.current);
     // console.log("myRef",myRef.current)´´ '
   });
   // const square = document.querySelector(".square");
@@ -53,17 +57,25 @@ function App() {
     <React.Fragment>
       <div data-theme={theme}>
         <ParallaxProvider>
-          {/* <button className="switch" onClick={switchTheme}></button> */}
-          <Header />
-          <SideEmail />
-          <Home />
-          <About myRef={myRef} />
-          <Technologies />
-          <Work />
-          <Projects />
-          <Contact />
-          <Menu />
-          {/* <ParticlesBackground/> */}
+          {isLoading ? (
+            <div className="loading-screen">
+              <div className="spinner"></div>
+            </div>
+          ) : (
+            <>
+              {/* <button className="switch" onClick={switchTheme}></button> */}
+              <Header />
+              <SideEmail />
+              <Home />
+              <About myRef={myRef} />
+              <Technologies />
+              <Work />
+              <Projects />
+              <Contact />
+              <Menu />
+              {/* <ParticlesBackground/> */}
+            </>
+          )}
         </ParallaxProvider>
       </div>
     </React.Fragment>

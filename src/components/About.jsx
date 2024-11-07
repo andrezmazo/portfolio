@@ -6,9 +6,12 @@ function About(props) {
   return (
     <section ref={props.myRef} className="about-container" id="About">
       <div className="section-box">
-        <div className="picture-container">
+        <a
+          className="picture-container"
+          href="https://www.linkedin.com/in/andrezmazo"
+        >
           <img src={pic} className="main-picture" alt="Andrés Zapata Mazo" />
-        </div>
+        </a>
         <div className="box-container neu center">
           {/* <div className="small-picture">
             <img src={pic} className="main-picture" alt="Andrés Zapata Mazo" />

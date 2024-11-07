@@ -10,22 +10,27 @@
     .text-container {
       flex-direction: column;
       display: flex;
+      gap: 12px;
       p:nth-of-type(1) {
-        font-weight: 400;
-        text-align: justify;
+        font-weight: 600;
+        font-size: 1.3rem;
+        text-align: center;
+        margin-top: 12px;
       }
       p:nth-of-type(2) {
         font-size: 1rem;
         color: var(--subtitle-color);
         font-style: italic;
-        margin-bottom: 10px;
-      }      
+      }
       p:nth-of-type(3) {
         font-weight: 400;
         font-size: 1rem;
-        margin-bottom: 10px;
       }
-      .badges-wrapper{
+      .project-link {
+        font-weight: 600;
+        font-style: italic;
+      }
+      .badges-wrapper {
         display: flex;
         flex-wrap: wrap;
       }
@@ -38,7 +43,7 @@
       .card-wrapper {
         min-height: 510px;
         display: flex;
-        .card-back{
+        .card-back {
           min-height: 531px;
           border-radius: 30px;
           background: #e0e0e0;
@@ -63,11 +68,5 @@
         }
       }
     }
-    
   }
 }
-
-
-
-
-

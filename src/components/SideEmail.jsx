@@ -33,7 +33,7 @@ function SideEmail() {
               </svg>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href="https://www.instagram.com/andrezmazo"
               aria-label="Instagram"
@@ -57,7 +57,7 @@ function SideEmail() {
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               href="https://www.linkedin.com/in/andrezmazo"

@@ -65,6 +65,30 @@ const BadgeIcons = {
     '<img class="badge-img" src="https://img.shields.io/badge/-Android-3DDC84?style=flat-square&logo=android&logoColor=ffffff" alt="Android Badge" />',
   PlayStore:
     '<img class="badge-img" src="https://img.shields.io/badge/-Play%20Store-414141?style=flat-square&logo=google-play&logoColor=ffffff" alt="Play Store Badge" />',
+  Python:
+    '<img class="badge-img" alt="Python" src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=ffffff">',
+  PowerBI:
+    '<img class="badge-img" alt="PowerBI" src="https://img.shields.io/badge/-PowerBI-F2C811?style=flat-square&logo=powerbi&logoColor=ffffff">',
+  WordPress:
+    '<img class="badge-img" alt="WordPress" src="https://img.shields.io/badge/-WordPress-21759B?style=flat-square&logo=wordpress&logoColor=ffffff">',
+  "API Rest":
+    '<img class="badge-img" alt="API Rest" src="https://img.shields.io/badge/-API%20Rest-000000?style=flat-square&logo=rest&logoColor=ffffff">',
+  AWS: '<img class="badge-img" alt="AWS" src="https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=ffffff">',
+  Athena:
+    '<img class="badge-img" alt="Athena" src="https://img.shields.io/badge/-Athena-232F3E?style=flat-square&logo=aws&logoColor=ffffff">',
+  DynamoDB:
+    '<img class="badge-img" alt="DynamoDB" src="https://img.shields.io/badge/-DynamoDB-4053D6?style=flat-square&logo=aws&logoColor=ffffff">',
+  S3: '<img class="badge-img" alt="S3" src="https://img.shields.io/badge/-S3-569A31?style=flat-square&logo=aws&logoColor=ffffff">',
+  "Data Lake":
+    '<img class="badge-img" alt="Data Lake" src="https://img.shields.io/badge/-Data%20Lake-000000?style=flat-square&logo=aws&logoColor=ffffff">',
+  "Data Analysis":
+    '<img class="badge-img" alt="Data Analysis" src="https://img.shields.io/badge/-Data%20Analysis-000000?style=flat-square&logo=python&logoColor=ffffff">',
+  QA: '<img class="badge-img" alt="QA" src="https://img.shields.io/badge/-QA-FF5733?style=flat-square&logo=bug&logoColor=ffffff">',
+  "Angular Material":
+    '<img class="badge-img" alt="Angular Material" src="https://img.shields.io/badge/Angular%20Material-DD0031?logo=angular&logoColor=white&style=for-the-badge">',
+  Swagger:
+    '<img class="badge-img" alt="Swagger" src="https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=black&style=for-the-badge">',
+  JTW: '<img class="badge-img" alt="JWT" src="https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white&style=for-the-badge">',
 };
 
 function Badge({ technology }) {

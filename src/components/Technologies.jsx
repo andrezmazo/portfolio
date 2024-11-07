@@ -15,6 +15,7 @@ function Technologies() {
                 <h3>Front End technologies:</h3>
                 <ul>
                   <li>JavaScript</li>
+                  <li>TypeScript</li>
                   <li>React Js</li>
                   <li>Angular</li>
                   <li>Html</li>
@@ -28,6 +29,7 @@ function Technologies() {
                 <h3> Back End technologies:</h3>
                 <ul>
                   <li>JavaScript</li>
+                  <li>TypeScript</li>
                   <li>Node.JS</li>
                   <li>MySQL</li>
                   <li>Redux</li>
@@ -41,9 +43,9 @@ function Technologies() {
             </div>
           </div>
         </div>
-        <div className="picture-container">
+        <a className="picture-container" href="https://github.com/andrezmazo">
           <img src={pic} className="main-picture" alt="Hocus" id="hocus-pic" />
-        </div>
+        </a>
       </div>
     </section>
   );
