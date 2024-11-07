@@ -1,25 +1,34 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.f16cf831.css",
-    "main.js": "/portfolio/static/js/main.256143f1.js",
+    "main.css": "/portfolio/static/css/main.76fcac4d.css",
+    "main.js": "/portfolio/static/js/main.4cf8bf37.js",
+    "static/media/Manual.gif": "/portfolio/static/media/Manual.2ac7c4b4171b4a95b845.gif",
     "static/media/SATMED.gif": "/portfolio/static/media/SATMED.6e87b1ef5164b35e02c1.gif",
+    "static/media/Catalogo.gif": "/portfolio/static/media/Catalogo.67632254eac0e1a1acd2.gif",
+    "static/media/Libreria.gif": "/portfolio/static/media/Libreria.3e2394bef46e7d339e43.gif",
+    "static/media/ExpenseTracker.gif": "/portfolio/static/media/ExpenseTracker.dd1b67737cff0d279922.gif",
     "static/media/mountains.png": "/portfolio/static/media/mountains.aac1275c8e69aac3706f.png",
+    "static/media/Editorial.gif": "/portfolio/static/media/Editorial.144d7d59b361a57a6a95.gif",
     "static/media/sky.png": "/portfolio/static/media/sky.9db07af2dacbe29e00c1.png",
     "static/media/ATV.gif": "/portfolio/static/media/ATV.d65cdbacfaa9d27bdda2.gif",
     "static/media/buildings1.png": "/portfolio/static/media/buildings1.0c6099f22c1af37f1238.png",
     "static/media/buildings2.png": "/portfolio/static/media/buildings2.21b2f1318705d9f1981d.png",
-    "static/media/Petshop.jpg": "/portfolio/static/media/Petshop.3e9bb56d077d499548dd.jpg",
+    "static/media/logoPetshop.jpg": "/portfolio/static/media/logoPetshop.3e9bb56d077d499548dd.jpg",
     "static/media/pic.jpg": "/portfolio/static/media/pic.c346edddf9c5e92cdeba.jpg",
+    "static/media/logoEditorial.jpg": "/portfolio/static/media/logoEditorial.0e68ed37c07cd8bd94a3.jpg",
     "static/media/pc-pic.png": "/portfolio/static/media/pc-pic.c317c04002aa6cdefeeb.png",
-    "static/media/SISCARAC.png": "/portfolio/static/media/SISCARAC.d58542c5dc72ab274b31.png",
-    "static/media/SATMED.jpg": "/portfolio/static/media/SATMED.71f0928a6fd55262c6bc.jpg",
-    "static/media/ATV.jpg": "/portfolio/static/media/ATV.5245b768147d35666c8e.jpg",
+    "static/media/logoExpenseTracker.jpg": "/portfolio/static/media/logoExpenseTracker.f8a8d28bc0133cac85f8.jpg",
+    "static/media/logoSISCARAC.png": "/portfolio/static/media/logoSISCARAC.d58542c5dc72ab274b31.png",
+    "static/media/logoLibreria.jpg": "/portfolio/static/media/logoLibreria.0d9c7d2ff6642ab885dd.jpg",
+    "static/media/logoSATMED.jpg": "/portfolio/static/media/logoSATMED.71f0928a6fd55262c6bc.jpg",
+    "static/media/logoIcfes.jpg": "/portfolio/static/media/logoIcfes.370c844109ea7e53980d.jpg",
+    "static/media/logoATV.jpg": "/portfolio/static/media/logoATV.5245b768147d35666c8e.jpg",
     "index.html": "/portfolio/index.html",
-    "main.f16cf831.css.map": "/portfolio/static/css/main.f16cf831.css.map",
-    "main.256143f1.js.map": "/portfolio/static/js/main.256143f1.js.map"
+    "main.76fcac4d.css.map": "/portfolio/static/css/main.76fcac4d.css.map",
+    "main.4cf8bf37.js.map": "/portfolio/static/js/main.4cf8bf37.js.map"
   },
   "entrypoints": [
-    "static/css/main.f16cf831.css",
-    "static/js/main.256143f1.js"
+    "static/css/main.76fcac4d.css",
+    "static/js/main.4cf8bf37.js"
   ]
 }
