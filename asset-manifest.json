@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.76fcac4d.css",
+    "main.css": "/portfolio/static/css/main.089b91fc.css",
     "main.js": "/portfolio/static/js/main.4cf8bf37.js",
     "static/media/Manual.gif": "/portfolio/static/media/Manual.2ac7c4b4171b4a95b845.gif",
     "static/media/SATMED.gif": "/portfolio/static/media/SATMED.6e87b1ef5164b35e02c1.gif",
@@ -24,11 +24,11 @@
     "static/media/logoIcfes.jpg": "/portfolio/static/media/logoIcfes.370c844109ea7e53980d.jpg",
     "static/media/logoATV.jpg": "/portfolio/static/media/logoATV.5245b768147d35666c8e.jpg",
     "index.html": "/portfolio/index.html",
-    "main.76fcac4d.css.map": "/portfolio/static/css/main.76fcac4d.css.map",
+    "main.089b91fc.css.map": "/portfolio/static/css/main.089b91fc.css.map",
     "main.4cf8bf37.js.map": "/portfolio/static/js/main.4cf8bf37.js.map"
   },
   "entrypoints": [
-    "static/css/main.76fcac4d.css",
+    "static/css/main.089b91fc.css",
     "static/js/main.4cf8bf37.js"
   ]
 }
