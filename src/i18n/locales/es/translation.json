@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "contact": "Contacto"
+  },
+  "home": {
+    "greeting": "Hola, soy",
+    "name": "Andrés Mazo",
+    "title": "Desarrollador Full Stack",
+    "description": "Creo experiencias digitales excepcionales que combinan diseño atractivo con funcionalidad eficiente. Apasionado por resolver problemas mediante código limpio y elegante.",
+    "viewProjects": "Ver Proyectos",
+    "yearsExperience": "Años de Experiencia",
+    "projectsCompleted": "Proyectos Completados",
+    "clientsWorldwide": "Clientes Globales"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "Conóceme mejor",
+    "description": "Como Desarrollador Full Stack con amplia experiencia en desarrollo web, me enfoco en crear soluciones digitales intuitivas y potentes. Con una base sólida tanto en tecnologías front-end como back-end, disfruto enfrentando desafíos complejos y transformándolos en aplicaciones elegantes centradas en el usuario.",
+    "education": "Educación",
+    "experience": "Experiencia"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Mis trabajos recientes",
+    "viewAll": "Ver Todos",
+    "liveDemo": "Demo",
+    "viewCode": "Ver Código"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Mi kit de herramientas técnicas",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Herramientas & Métodos"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "Mi trayectoria profesional",
+    "present": "Presente"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "Trabajemos juntos",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Error al enviar mensaje. Por favor intenta de nuevo."
+  }, "success": "¡Mensaje enviado con éxito! Me pondré en contacto pronto.",
+  "footer": {   "error": "Error al enviar mensaje. Por favor intenta de nuevo.",
+    "madeWith": "Hecho con",    "thankYou": "¡Gracias!",
+  "rights": "Todos los derechos reservados."   , "sorry": "¡Lo siento!",
+    "close": "Cerrar",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "nameRequired": "El nombre es obligatorio",
+    "emailRequired": "El correo es obligatorio",
+    "emailInvalid": "Por favor ingresa un correo válido",
+    "subjectRequired": "El asunto es obligatorio",
+    "messageRequired": "El mensaje es obligatorio"
+  }
+}
