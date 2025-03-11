@@ -12,12 +12,14 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: ${({ theme }) => theme.card};
+  background-color: ${({ theme }) =>
+    theme.navBackground}; // Use the new navBackground color
   box-shadow: ${({ theme }) => theme.shadow};
   position: sticky;
   top: 0;
   z-index: 100;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 `;
 
 const Logo = styled(Link)`
@@ -26,7 +28,7 @@ const Logo = styled(Link)`
   color: ${({ theme }) => theme.primary};
   display: flex;
   align-items: center;
-  
+
   span {
     color: ${({ theme }) => theme.accent};
   }
@@ -35,7 +37,7 @@ const Logo = styled(Link)`
 const NavLinks = styled.div<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
-  
+
   @media (max-width: 768px) {
     position: fixed;
     top: 0;
@@ -44,9 +46,11 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
     width: 250px;
     flex-direction: column;
     justify-content: center;
-    background-color: ${({ theme }) => theme.card};
+    background-color: ${({ theme }) =>
+      theme.navBackground}; // Also update here for mobile menu
     box-shadow: ${({ theme }) => theme.shadow};
-    transform: ${({ isOpen }) => isOpen ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ isOpen }) =>
+      isOpen ? "translateX(0)" : "translateX(100%)"};
     transition: transform 0.3s ease-in-out;
   }
 `;
