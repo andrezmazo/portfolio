@@ -11,7 +11,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 0.5rem 1rem;
   background-color: ${({ theme }) =>
     theme.navBackground}; // Use the new navBackground color
   box-shadow: ${({ theme }) => theme.shadow};
