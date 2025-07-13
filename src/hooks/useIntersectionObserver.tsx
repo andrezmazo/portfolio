@@ -9,14 +9,14 @@ interface IntersectionObserverOptions {
 
 function useIntersectionObserver<T extends Element>(
   options: IntersectionObserverOptions = {}
-): [RefObject<T>, boolean] {
-  const { 
-    root = null, 
-    rootMargin = '0px', 
+): [RefObject<T | null>, boolean] {
+  const {
+    root = null,
+    rootMargin = "0px",
     threshold = 0.1,
-    triggerOnce = false
+    triggerOnce = false,
   } = options;
-  
+
   const ref = useRef<T>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
 
@@ -27,7 +27,7 @@ function useIntersectionObserver<T extends Element>(
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
-        
+
         // If triggerOnce is true and the element is intersecting,
         // disconnect the observer after first intersection
         if (triggerOnce && entry.isIntersecting) {

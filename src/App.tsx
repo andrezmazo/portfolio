@@ -8,7 +8,7 @@ import GlobalStyle from "./styles/globalStyles";
 
 // Contexts
 import { ThemeContext } from "./context/ThemeContext";
-import { LanguageContext } from "./context/LanguageContext";
+import { LanguageProvider } from "./context/LanguageContext";
 import { ScrollProvider } from "./context/ScrollContext";
 
 // Main page (combines all sections)
@@ -76,16 +76,9 @@ const ConfettiAndSnackbar: React.FC = () => {
 
 function App() {
   const [theme, setTheme] = useState("light");
-  const [language, setLanguage] = useState("es");
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  const toggleLanguage = () => {
-    const newLang = language === "es" ? "en" : "es";
-    setLanguage(newLang);
-    i18n.changeLanguage(newLang);
   };
 
   return (
@@ -97,7 +90,7 @@ function App() {
       <ThemeContext.Provider
         value={{ theme, toggleTheme, isDarkMode: theme === "dark" }}
       >
-        <LanguageContext.Provider value={{ language, toggleLanguage }}>
+        <LanguageProvider>
           <ScrollProvider>
             <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
               <I18nextProvider i18n={i18n}>
@@ -112,7 +105,7 @@ function App() {
               </I18nextProvider>
             </ThemeProvider>
           </ScrollProvider>
-        </LanguageContext.Provider>
+        </LanguageProvider>
       </ThemeContext.Provider>
     </SnackbarProvider>
   );

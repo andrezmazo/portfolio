@@ -3,12 +3,12 @@ import i18n from '../i18n/config';
 
 interface LanguageContextType {
   language: string;
-  toggleLanguage: (lang: string) => void;
+  changeLanguage: (lang: string) => void;
 }
 
 export const LanguageContext = createContext<LanguageContextType>({
   language: "en",
-  toggleLanguage: () => {},
+  changeLanguage: () => {},
 });
 
 interface LanguageProviderProps {

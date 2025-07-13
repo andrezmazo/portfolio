@@ -96,6 +96,11 @@ export interface RotatingTextRef {
   reset: () => void;
 }
 
+interface TextElement {
+  characters: string[];
+  needsSpace: boolean;
+}
+
 const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
   (props, ref) => {
     const {
@@ -128,7 +133,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
         // @ts-ignore: Segmenter API may not be typed correctly
         return Array.from(
           segmenter.segment(text),
-          (segment) => segment.segment
+          (segment: any) => segment.segment
         );
       }
       return Array.from(text);
@@ -138,28 +143,34 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
       const currentText = texts[currentTextIndex];
       if (splitBy === "characters") {
         const words = currentText.split(" ");
-        return words.map((word, i) => ({
+        return words.map((word: string, i: number) => ({
           characters: splitIntoCharacters(word),
           needsSpace: i !== words.length - 1,
         }));
       }
       if (splitBy === "words") {
-        return currentText.split(" ").map((word, i, arr) => ({
-          characters: [word],
-          needsSpace: i !== arr.length - 1,
-        }));
+        return currentText
+          .split(" ")
+          .map((word: string, i: number, arr: string[]) => ({
+            characters: [word],
+            needsSpace: i !== arr.length - 1,
+          }));
       }
       if (splitBy === "lines") {
-        return currentText.split("\n").map((line, i, arr) => ({
-          characters: [line],
-          needsSpace: i !== arr.length - 1,
-        }));
+        return currentText
+          .split("\n")
+          .map((line: string, i: number, arr: string[]) => ({
+            characters: [line],
+            needsSpace: i !== arr.length - 1,
+          }));
       }
       // For a custom separator
-      return currentText.split(splitBy).map((part, i, arr) => ({
-        characters: [part],
-        needsSpace: i !== arr.length - 1,
-      }));
+      return currentText
+        .split(splitBy)
+        .map((part: string, i: number, arr: string[]) => ({
+          characters: [part],
+          needsSpace: i !== arr.length - 1,
+        }));
     }, [texts, currentTextIndex, splitBy]);
 
     const getStaggerDelay = useCallback(
@@ -271,45 +282,60 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
             layout
             aria-hidden="true"
           >
-            {elements.map((wordObj, wordIndex, array) => {
-              const previousCharsCount = array
-                .slice(0, wordIndex)
-                .reduce((sum, word) => sum + word.characters.length, 0);
-              return (
-                <WordContainer
-                  key={wordIndex}
-                  className={cn("text-rotate-word", splitLevelClassName)}
-                >
-                  {wordObj.characters.map((char, charIndex) => (
-                    <CharacterElement
-                      key={charIndex}
-                      initial={initial}
-                      animate={animate}
-                      exit={exit}
-                      transition={{
-                        ...transition,
-                        delay: getStaggerDelay(
-                          previousCharsCount + charIndex,
-                          array.reduce(
-                            (sum, word) => sum + word.characters.length,
-                            0
-                          )
-                        ),
-                      }}
-                      className={cn(
-                        "text-rotate-element",
-                        elementLevelClassName
-                      )}
-                    >
-                      {char}
-                    </CharacterElement>
-                  ))}
-                  {wordObj.needsSpace && (
-                    <SpaceElement className="text-rotate-space"> </SpaceElement>
-                  )}
-                </WordContainer>
-              );
-            })}
+            {elements.map(
+              (
+                wordObj: TextElement,
+                wordIndex: number,
+                array: TextElement[]
+              ) => {
+                const previousCharsCount = array
+                  .slice(0, wordIndex)
+                  .reduce(
+                    (sum: number, word: TextElement) =>
+                      sum + word.characters.length,
+                    0
+                  );
+                return (
+                  <WordContainer
+                    key={wordIndex}
+                    className={cn("text-rotate-word", splitLevelClassName)}
+                  >
+                    {wordObj.characters.map(
+                      (char: string, charIndex: number) => (
+                        <CharacterElement
+                          key={charIndex}
+                          initial={initial}
+                          animate={animate}
+                          exit={exit}
+                          transition={{
+                            ...transition,
+                            delay: getStaggerDelay(
+                              previousCharsCount + charIndex,
+                              array.reduce(
+                                (sum: number, word: TextElement) =>
+                                  sum + word.characters.length,
+                                0
+                              )
+                            ),
+                          }}
+                          className={cn(
+                            "text-rotate-element",
+                            elementLevelClassName
+                          )}
+                        >
+                          {char}
+                        </CharacterElement>
+                      )
+                    )}
+                    {wordObj.needsSpace && (
+                      <SpaceElement className="text-rotate-space">
+                        {" "}
+                      </SpaceElement>
+                    )}
+                  </WordContainer>
+                );
+              }
+            )}
           </motion.div>
         </AnimatePresence>
       </RotatingTextContainer>

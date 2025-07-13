@@ -201,7 +201,7 @@ const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { language, toggleLanguage } = useContext(LanguageContext);
+  const { language, changeLanguage } = useContext(LanguageContext);
   const { activeSectionId, scrollToSection } = useContext(ScrollContext);
   const [isOpen, setIsOpen] = useState(false);
   const rotatingTextRef = useRef<RotatingTextRef>(null);
@@ -332,7 +332,9 @@ const Navbar: React.FC = () => {
                 {theme === "light" ? <FiMoon /> : <FiSun />}
               </ThemeToggle>
 
-              <LanguageToggle onClick={toggleLanguage}>
+              <LanguageToggle
+                onClick={() => changeLanguage(language === "es" ? "en" : "es")}
+              >
                 {language === "es" ? "EN" : "ES"}
               </LanguageToggle>
             </ControlsContainer>
@@ -358,7 +360,9 @@ const Navbar: React.FC = () => {
             {theme === "light" ? <FiMoon /> : <FiSun />}
           </ThemeToggle>
 
-          <LanguageToggle onClick={toggleLanguage}>
+          <LanguageToggle
+            onClick={() => changeLanguage(language === "es" ? "en" : "es")}
+          >
             {language === "es" ? "EN" : "ES"}
           </LanguageToggle>
         </ControlsContainer>
