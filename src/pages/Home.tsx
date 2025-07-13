@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import ResponsiveContainer from "../components/ResponsiveContainer";
 import { useIsMobile } from "../hooks/useMediaQuery";
+import pic from "../assets/pic.jpg";
 
 // Update the HeroSection with a higher z-index
 const HeroSection = styled.section`
@@ -370,7 +371,7 @@ const Home: React.FC = () => {
 
         <HeroImageContainer>
           <HeroImage
-            src="/assets/pic.jpg"
+            src={pic}
             alt={t("home.name")}
             variants={imageVariants}
             initial="hidden"

@@ -14,6 +14,7 @@ import {
 import ResponsiveContainer from "../components/ResponsiveContainer";
 import Badge from "../components/Badge";
 import { useIsMobile } from "../hooks/useMediaQuery";
+import pcHocus from "../assets/img/pc-hocus.png";
 
 const AboutSection = styled.section`
   padding: 1rem 0;
@@ -516,7 +517,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <AboutImage
-              src="/assets/img/pc-hocus.png"
+              src={pcHocus}
               alt={t("about.imageAlt")}
               initial="hidden"
               animate="visible"

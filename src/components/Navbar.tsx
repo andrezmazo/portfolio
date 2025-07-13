@@ -44,17 +44,17 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
   @media (max-width: 768px) {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     height: 100vh;
-    width: 250px;
+    width: 100vw;
     flex-direction: column;
     justify-content: center;
-    background-color: ${({ theme }) =>
-      theme.navBackground}; // Also update here for mobile menu
+    background-color: ${({ theme }) => theme.navBackground};
     box-shadow: ${({ theme }) => theme.shadow};
     transform: ${({ $isOpen }) =>
       $isOpen ? "translateX(0)" : "translateX(100%)"};
     transition: transform 0.3s ease-in-out;
+    z-index: 1000;
   }
 `;
 
@@ -84,7 +84,7 @@ const NavItem = styled(motion.div)<{ active?: boolean }>`
   }
 
   @media (max-width: 768px) {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
   }
 `;
 
@@ -93,7 +93,8 @@ const ControlsContainer = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    margin-top: 2rem;
+    margin-top: 3rem;
+    gap: 1rem;
   }
 `;
 
@@ -106,11 +107,19 @@ const ThemeToggle = styled.button`
   border-radius: 50%;
   background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
+  border: none;
+  cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
     background-color: ${({ theme }) => theme.primary};
     color: white;
+  }
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    padding: 0.75rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -120,11 +129,18 @@ const LanguageToggle = styled.button`
   border-radius: 4px;
   background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
+  border: none;
+  cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
     background-color: ${({ theme }) => theme.primary};
     color: white;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
   }
 `;
 
@@ -140,14 +156,38 @@ const MobileMenuButton = styled.button`
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
   color: ${({ theme }) => theme.text};
+  background: none;
+  border: none;
+  cursor: pointer;
   display: none;
+  z-index: 1001;
 
   @media (max-width: 768px) {
     display: block;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
+const MobileMenuOverlay = styled.div<{ $isOpen: boolean }>`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    backdrop-filter: blur(5px);
   }
 `;
 
@@ -266,6 +306,25 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   };
 
+  // Close menu when clicking outside
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(false);
+    }
+  };
+
+  // Close menu with Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isOpen]);
+
   const navLinks = [
     { to: "home", label: t("nav.home") },
     { to: "about", label: t("nav.about") },
@@ -303,42 +362,47 @@ const Navbar: React.FC = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <NavLinks $isOpen={isOpen}>
-            <CloseButton onClick={() => setIsOpen(false)}>
-              <FiX />
-            </CloseButton>
+          <>
+            <MobileMenuOverlay $isOpen={isOpen} onClick={handleOverlayClick} />
+            <NavLinks $isOpen={isOpen}>
+              <CloseButton onClick={() => setIsOpen(false)}>
+                <FiX />
+              </CloseButton>
 
-            {navLinks.map((link) => (
-              <NavItem
-                key={link.to}
-                active={isActive(link.to)}
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 50, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <MobileNavLink
-                  href={`#${link.to}`}
-                  onClick={(e) => handleScrollTo(e, link.to)}
-                  className={`nav-item ${isActive(link.to) ? "active" : ""}`}
+              {navLinks.map((link, index) => (
+                <NavItem
+                  key={link.to}
+                  active={isActive(link.to)}
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: 50, opacity: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  {link.label}
-                </MobileNavLink>
-              </NavItem>
-            ))}
+                  <MobileNavLink
+                    href={`#${link.to}`}
+                    onClick={(e) => handleScrollTo(e, link.to)}
+                    className={`nav-item ${isActive(link.to) ? "active" : ""}`}
+                  >
+                    {link.label}
+                  </MobileNavLink>
+                </NavItem>
+              ))}
 
-            <ControlsContainer>
-              <ThemeToggle onClick={toggleTheme}>
-                {theme === "light" ? <FiMoon /> : <FiSun />}
-              </ThemeToggle>
+              <ControlsContainer>
+                <ThemeToggle onClick={toggleTheme}>
+                  {theme === "light" ? <FiMoon /> : <FiSun />}
+                </ThemeToggle>
 
-              <LanguageToggle
-                onClick={() => changeLanguage(language === "es" ? "en" : "es")}
-              >
-                {language === "es" ? "EN" : "ES"}
-              </LanguageToggle>
-            </ControlsContainer>
-          </NavLinks>
+                <LanguageToggle
+                  onClick={() =>
+                    changeLanguage(language === "es" ? "en" : "es")
+                  }
+                >
+                  {language === "es" ? "EN" : "ES"}
+                </LanguageToggle>
+              </ControlsContainer>
+            </NavLinks>
+          </>
         )}
       </AnimatePresence>
 
