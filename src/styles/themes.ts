@@ -1,6 +1,7 @@
 export interface ThemeType {
   body: string;
   text: string;
+  textAccent: string;
   primary: string;
   secondary: string;
   accent: string;
@@ -14,9 +15,10 @@ export interface ThemeType {
 export const lightTheme: ThemeType = {
   body: "#FFFFFF",
   text: "#333333",
+  textAccent: "#FFFFFF",
   primary: "#4361EE",
   secondary: "#3F37C9",
-  accent: "#4CC9F0",
+  accent: "#51badb",
   background: "#F8F9FA",
   cardBg: "#FFFFFF",
   shadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
@@ -27,9 +29,10 @@ export const lightTheme: ThemeType = {
 export const darkTheme: ThemeType = {
   body: "#1A1A2E",
   text: "#F8F8F8",
+  textAccent: "#FFFFFF",
   primary: "#4361EE",
-  secondary: "#4CC9F0",
-  accent: "#7209B7",
+  secondary: "#51badb",
+  accent: "#0dd6cf",
   background: "#0F3460",
   cardBg: "#16213E",
   shadow: "0 10px 30px rgba(0, 0, 0, 0.5)",

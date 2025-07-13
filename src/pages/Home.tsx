@@ -1,39 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import ResponsiveContainer from "../components/ResponsiveContainer";
 import { useIsMobile } from "../hooks/useMediaQuery";
-import Waves from "../components/Waves/Waves";
-import { ThemeContext } from "../context/ThemeContext";
-
-// Completely updated WavesContainer to break out of parent constraints
-const WavesContainer = styled.div`
-  position: fixed; // Changed to fixed position
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  opacity: 0.4;
-  pointer-events: none;
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.8) 40%,
-    rgba(0, 0, 0, 0.4) 60%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.8) 40%,
-    rgba(0, 0, 0, 0.4) 60%,
-    rgba(0, 0, 0, 0) 100%
-  );
-`;
 
 // Update the HeroSection with a higher z-index
 const HeroSection = styled.section`
@@ -43,7 +14,7 @@ const HeroSection = styled.section`
   flex-direction: column;
   justify-content: center;
   min-height: calc(100vh - 100px);
-  padding: 2rem 0 4rem;
+  padding: 1rem 0 4rem;
   overflow: hidden; // Ensure waves don't overflow the section
 
   @media (min-width: 768px) {
@@ -57,7 +28,7 @@ const HeroSection = styled.section`
 
 // Add z-index to content elements to ensure they're above the waves
 const HeroContent = styled.div`
-  flex: 1;
+  flex: 3;
   order: 2;
   text-align: center;
   position: relative;
@@ -87,7 +58,7 @@ const HeroImageContainer = styled.div`
 `;
 
 const HeroImage = styled(motion.img)`
-  max-width: 80%;
+  max-width: calc(80% - 2rem);
   border-radius: 50%;
   box-shadow: ${({ theme }) => theme.shadow};
 
@@ -168,7 +139,7 @@ const ButtonContainer = styled(motion.div)`
   }
 `;
 
-const CTAButton = styled(motion(Link))`
+const CTAButton = styled(motion.a)`
   padding: 1rem 1.8rem;
   background-color: ${({ theme }) => theme.primary};
   color: white;
@@ -177,13 +148,15 @@ const CTAButton = styled(motion(Link))`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 0.5rem;
   gap: 0.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px ${({ theme }) => `${theme.primary}50`};
 
   &:hover {
     background-color: ${({ theme }) => theme.accent};
-    transform: translateY(-2px);
+    color: ${({ theme }) => theme.textAccent};
+    transform: translateY(-1px);
     box-shadow: 0 6px 15px ${({ theme }) => `${theme.primary}50`};
   }
 
@@ -196,7 +169,7 @@ const CTAButton = styled(motion(Link))`
   }
 `;
 
-const SecondaryButton = styled(Link)`
+const SecondaryButton = styled.a`
   padding: 1rem 1.8rem;
   background-color: transparent;
   color: ${({ theme }) => theme.primary};
@@ -256,12 +229,41 @@ const HighlightLabel = styled.span`
 const Home: React.FC = () => {
   const { t } = useTranslation();
   const isMobile = useIsMobile();
-  const { isDarkMode } = useContext(ThemeContext); // Get current theme
 
-  // Adjust wave properties for better visibility with the mask
-  const waveColor = isDarkMode
-    ? "rgba(141, 161, 255, 0.8)" // Increased opacity for dark mode
-    : "rgba(18, 136, 156, 0.5)"; // Increased opacity for light mode
+  // Function to calculate experience from February 10, 2022
+  const calculateExperience = () => {
+    const startDate = new Date(2022, 1, 10); // February 10, 2022 (month is 0-indexed)
+    const currentDate = new Date();
+
+    let years = currentDate.getFullYear() - startDate.getFullYear();
+    let months = currentDate.getMonth() - startDate.getMonth();
+    let days = currentDate.getDate() - startDate.getDate();
+
+    // Adjust for negative days
+    if (days < 0) {
+      months--;
+      const lastMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        0
+      );
+      days += lastMonth.getDate();
+    }
+
+    // Adjust for negative months
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return { years, months, days };
+  };
+
+  const experience = calculateExperience();
+  const experienceDisplay =
+    experience.years > 0
+      ? `${experience.years}.${experience.months}+`
+      : `${experience.months}m`;
 
   // Animation variants
   const containerVariants = {
@@ -294,92 +296,90 @@ const Home: React.FC = () => {
   };
 
   return (
-    <>
-      {/* Place WavesContainer outside of ResponsiveContainer */}
-      <WavesContainer>
-        <Waves
-          lineColor={waveColor}
-          backgroundColor="transparent"
-          waveSpeedX={0.035}
-          waveSpeedY={0.03}
-          waveAmpX={60} // Increased even more for wider coverage
-          waveAmpY={35} // Increased for more dramatic effect
-          xGap={20}
-          yGap={28}
-        />
-      </WavesContainer>
+    <ResponsiveContainer>
+      <HeroSection>
+        <HeroContent
+          as={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <Greeting variants={itemVariants}>{t("home.greeting")}</Greeting>
+          <Name variants={itemVariants}>{t("home.name")}</Name>
+          <Title variants={itemVariants}>{t("home.title")}</Title>
+          <Description variants={itemVariants}>
+            {t("home.description")}
+          </Description>
 
-      <ResponsiveContainer>
-        <HeroSection>
-          <HeroContent
-            as={motion.div}
-            variants={containerVariants}
+          <ButtonContainer variants={itemVariants}>
+            <CTAButton
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {t("home.viewProjects")} <FaArrowRight />
+            </CTAButton>
+            <SecondaryButton
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {t("contact.title")}
+            </SecondaryButton>
+          </ButtonContainer>
+
+          <Highlights>
+            <Highlight
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.5 }}
+            >
+              <HighlightValue>{experienceDisplay}</HighlightValue>
+              <HighlightLabel>{t("home.yearsExperience")}</HighlightLabel>
+            </Highlight>
+
+            <Highlight
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+            >
+              <HighlightValue>50+</HighlightValue>
+              <HighlightLabel>{t("home.projectsCompleted")}</HighlightLabel>
+            </Highlight>
+
+            <Highlight
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.5 }}
+            >
+              <HighlightValue>15+</HighlightValue>
+              <HighlightLabel>{t("home.clientsWorldwide")}</HighlightLabel>
+            </Highlight>
+          </Highlights>
+        </HeroContent>
+
+        <HeroImageContainer>
+          <HeroImage
+            src="/assets/pic.jpg"
+            alt={t("home.name")}
+            variants={imageVariants}
             initial="hidden"
             animate="visible"
-          >
-            <Greeting variants={itemVariants}>{t("home.greeting")}</Greeting>
-            <Name variants={itemVariants}>{t("home.name")}</Name>
-            <Title variants={itemVariants}>{t("home.title")}</Title>
-            <Description variants={itemVariants}>
-              {t("home.description")}
-            </Description>
-
-            <ButtonContainer variants={itemVariants}>
-              <CTAButton
-                to="/projects"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {t("home.viewProjects")} <FaArrowRight />
-              </CTAButton>
-              <SecondaryButton to="/contact">
-                {t("contact.title")}
-              </SecondaryButton>
-            </ButtonContainer>
-
-            <Highlights>
-              <Highlight
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.0, duration: 0.5 }}
-              >
-                <HighlightValue>5+</HighlightValue>
-                <HighlightLabel>{t("home.yearsExperience")}</HighlightLabel>
-              </Highlight>
-
-              <Highlight
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.5 }}
-              >
-                <HighlightValue>50+</HighlightValue>
-                <HighlightLabel>{t("home.projectsCompleted")}</HighlightLabel>
-              </Highlight>
-
-              <Highlight
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.4, duration: 0.5 }}
-              >
-                <HighlightValue>15+</HighlightValue>
-                <HighlightLabel>{t("home.clientsWorldwide")}</HighlightLabel>
-              </Highlight>
-            </Highlights>
-          </HeroContent>
-
-          <HeroImageContainer>
-            <HeroImage
-              src="/assets/pic.jpg"
-              alt={t("home.name")}
-              variants={imageVariants}
-              initial="hidden"
-              animate="visible"
-              whileHover={{ scale: isMobile ? 1 : 1.05 }}
-            />
-          </HeroImageContainer>
-        </HeroSection>
-      </ResponsiveContainer>
-    </>
+            whileHover={{ scale: isMobile ? 1 : 1.05 }}
+          />
+        </HeroImageContainer>
+      </HeroSection>
+    </ResponsiveContainer>
   );
 };
 

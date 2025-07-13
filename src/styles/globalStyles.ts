@@ -85,16 +85,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   section {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
     
     @media (min-width: 768px) {
-      padding: 5rem 2rem;
+      padding: 1rem 0rem;
     }
   }
 
   .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
   }
@@ -112,6 +112,15 @@ const GlobalStyle = createGlobalStyle`
   :focus {
     outline: 3px solid ${({ theme }) => theme.primary}40;
     outline-offset: 2px;
+  }
+
+  /* Active nav item style */
+  .nav-item.active {
+    color: ${({ theme }) => theme.primary} !important;
+    
+    &::after {
+      width: 100% !important;
+    }
   }
 `;
 

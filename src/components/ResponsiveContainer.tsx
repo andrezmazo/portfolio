@@ -7,15 +7,16 @@ interface ContainerProps {
   className?: string;
 }
 
-const StyledContainer = styled.div<{ fluid: boolean }>`
+const StyledContainer = styled.div<{ $fluid: boolean }>`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-right: 1rem;
   padding-left: 1rem;
-  
-  ${({ fluid }) => 
-    !fluid && `
+
+  ${({ $fluid }) =>
+    !$fluid &&
+    `
       @media (min-width: 576px) {
         max-width: 540px;
       }
@@ -34,13 +35,13 @@ const StyledContainer = styled.div<{ fluid: boolean }>`
     `}
 `;
 
-const ResponsiveContainer: React.FC<ContainerProps> = ({ 
-  fluid = false, 
-  children, 
-  className 
+const ResponsiveContainer: React.FC<ContainerProps> = ({
+  fluid = false,
+  children,
+  className,
 }) => {
   return (
-    <StyledContainer fluid={fluid} className={className}>
+    <StyledContainer $fluid={fluid} className={className}>
       {children}
     </StyledContainer>
   );

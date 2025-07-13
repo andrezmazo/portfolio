@@ -2,15 +2,20 @@ import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaEnvelope, FaPhone, FaMapMarkerAlt, 
-  FaGithub, FaLinkedin, FaTwitter, FaCheck, FaTimes
-} from 'react-icons/fa';
-import emailjs from '@emailjs/browser';
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaCheck,
+  FaTimes,
+} from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = styled.section`
   padding: 6rem 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 `;
 
@@ -35,7 +40,7 @@ const ContactContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  
+
   @media (min-width: 768px) {
     grid-template-columns: 40% 60%;
   }
@@ -110,7 +115,7 @@ const SocialLink = styled.a`
   justify-content: center;
   font-size: 1.2rem;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background-color: ${({ theme }) => theme.primary};
     color: white;
@@ -133,13 +138,13 @@ const FormLabel = styled.label`
   transition: all 0.3s ease;
   pointer-events: none;
   background-color: ${({ theme }) => theme.cardBg};
-  
+
   ${FormGroup}:focus-within & {
     top: -0.5rem;
     font-size: 0.8rem;
     color: ${({ theme }) => theme.primary};
   }
-  
+
   ${FormGroup}.filled & {
     top: -0.5rem;
     font-size: 0.8rem;
@@ -155,7 +160,7 @@ const FormInput = styled.input`
   color: ${({ theme }) => theme.text};
   font-size: 1rem;
   transition: all 0.3s ease;
-  
+
   &:focus {
     border-color: ${({ theme }) => theme.primary};
     outline: none;
@@ -174,7 +179,7 @@ const FormTextarea = styled.textarea`
   transition: all 0.3s ease;
   min-height: 150px;
   resize: vertical;
-  
+
   &:focus {
     border-color: ${({ theme }) => theme.primary};
     outline: none;
@@ -192,7 +197,7 @@ const SubmitButton = styled(motion.button)`
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  
+
   &:disabled {
     background-color: gray;
     cursor: not-allowed;
@@ -232,7 +237,8 @@ const NotificationIcon = styled.div<{ success: boolean }>`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: ${({ theme, success }) => success ? '#27ae60' : '#e74c3c'};
+  background-color: ${({ theme, success }) =>
+    success ? "#27ae60" : "#e74c3c"};
   color: white;
   display: flex;
   align-items: center;
@@ -263,7 +269,7 @@ const NotificationButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background-color: ${({ theme }) => theme.secondary};
   }
@@ -287,10 +293,10 @@ const Contact: React.FC = () => {
   const { t } = useTranslation();
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<FormInputs>({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -301,7 +307,7 @@ const Contact: React.FC = () => {
   }>({
     show: false,
     success: false,
-    message: ''
+    message: "",
   });
 
   const validateForm = (): boolean => {
@@ -309,25 +315,25 @@ const Contact: React.FC = () => {
     let isValid = true;
 
     if (!formData.name.trim()) {
-      newErrors.name = t('contact.nameRequired');
+      newErrors.name = t("contact.nameRequired");
       isValid = false;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = t('contact.emailRequired');
+      newErrors.email = t("contact.emailRequired");
       isValid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t('contact.emailInvalid');
+      newErrors.email = t("contact.emailInvalid");
       isValid = false;
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = t('contact.subjectRequired');
+      newErrors.subject = t("contact.subjectRequired");
       isValid = false;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = t('contact.messageRequired');
+      newErrors.message = t("contact.messageRequired");
       isValid = false;
     }
 
@@ -335,29 +341,31 @@ const Contact: React.FC = () => {
     return isValid;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-    
+
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: undefined
+        [name]: undefined,
       }));
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
-    
+
     // Implement email service integration (EmailJS example)
     try {
       // Replace with your EmailJS service ID, template ID, and public key
@@ -367,29 +375,29 @@ const Contact: React.FC = () => {
       //   formRef.current!,
       //   'YOUR_PUBLIC_KEY'
       // );
-      
+
       // Simulating API call for demonstration
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       setNotification({
         show: true,
         success: true,
-        message: t('contact.success')
+        message: t("contact.success"),
       });
-      
+
       // Reset form
       setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
       });
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error("Error sending email:", error);
       setNotification({
         show: true,
         success: false,
-        message: t('contact.error')
+        message: t("contact.error"),
       });
     } finally {
       setIsSubmitting(false);
@@ -397,31 +405,35 @@ const Contact: React.FC = () => {
   };
 
   const closeNotification = () => {
-    setNotification(prev => ({
+    setNotification((prev) => ({
       ...prev,
-      show: false
+      show: false,
     }));
   };
-  
+
   return (
     <ContactSection>
-      <SectionHeader as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <SectionHeader
+        as={motion.div}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         <SectionTitle
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {t('contact.title')}
+          {t("contact.title")}
         </SectionTitle>
         <SectionSubtitle
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {t('contact.subtitle')}
+          {t("contact.subtitle")}
         </SectionSubtitle>
       </SectionHeader>
-      
+
       <ContactContainer>
         <ContactInfo
           initial={{ x: -50, opacity: 0 }}
@@ -437,40 +449,45 @@ const Contact: React.FC = () => {
               <InfoText>contact@andresmazo.com</InfoText>
             </InfoContent>
           </InfoItem>
-          
+
           <InfoItem>
             <IconBox>
               <FaPhone />
             </IconBox>
             <InfoContent>
-              <InfoTitle>{t('contact.phone')}</InfoTitle>
+              <InfoTitle>{t("contact.phone")}</InfoTitle>
               <InfoText>+57 (XXX) XXXXXXX</InfoText>
             </InfoContent>
           </InfoItem>
-          
+
           <InfoItem>
             <IconBox>
               <FaMapMarkerAlt />
             </IconBox>
             <InfoContent>
-              <InfoTitle>{t('contact.location')}</InfoTitle>
+              <InfoTitle>{t("contact.location")}</InfoTitle>
               <InfoText>Medellín, Colombia</InfoText>
             </InfoContent>
           </InfoItem>
-          
+
           <SocialLinks>
-            <SocialLink href="https://github.com/andrezmazo" target="_blank" rel="noopener noreferrer">
+            <SocialLink
+              href="https://github.com/andrezmazo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaGithub />
             </SocialLink>
-            <SocialLink href="https://linkedin.com/in/andresmazo" target="_blank" rel="noopener noreferrer">
+            <SocialLink
+              href="https://linkedin.com/in/andresmazo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaLinkedin />
-            </SocialLink>
-            <SocialLink href="https://twitter.com/andresmazo" target="_blank" rel="noopener noreferrer">
-              <FaTwitter />
             </SocialLink>
           </SocialLinks>
         </ContactInfo>
-        
+
         <ContactForm
           ref={formRef}
           onSubmit={handleSubmit}
@@ -478,8 +495,8 @@ const Contact: React.FC = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <FormGroup className={formData.name ? 'filled' : ''}>
-            <FormLabel htmlFor="name">{t('contact.name')}</FormLabel>
+          <FormGroup className={formData.name ? "filled" : ""}>
+            <FormLabel htmlFor="name">{t("contact.name")}</FormLabel>
             <FormInput
               type="text"
               id="name"
@@ -499,8 +516,8 @@ const Contact: React.FC = () => {
               )}
             </AnimatePresence>
           </FormGroup>
-          
-          <FormGroup className={formData.email ? 'filled' : ''}>
+
+          <FormGroup className={formData.email ? "filled" : ""}>
             <FormLabel htmlFor="email">Email</FormLabel>
             <FormInput
               type="email"
@@ -521,9 +538,9 @@ const Contact: React.FC = () => {
               )}
             </AnimatePresence>
           </FormGroup>
-          
-          <FormGroup className={formData.subject ? 'filled' : ''}>
-            <FormLabel htmlFor="subject">{t('contact.subject')}</FormLabel>
+
+          <FormGroup className={formData.subject ? "filled" : ""}>
+            <FormLabel htmlFor="subject">{t("contact.subject")}</FormLabel>
             <FormInput
               type="text"
               id="subject"
@@ -543,9 +560,9 @@ const Contact: React.FC = () => {
               )}
             </AnimatePresence>
           </FormGroup>
-          
-          <FormGroup className={formData.message ? 'filled' : ''}>
-            <FormLabel htmlFor="message">{t('contact.message')}</FormLabel>
+
+          <FormGroup className={formData.message ? "filled" : ""}>
+            <FormLabel htmlFor="message">{t("contact.message")}</FormLabel>
             <FormTextarea
               id="message"
               name="message"
@@ -564,18 +581,18 @@ const Contact: React.FC = () => {
               )}
             </AnimatePresence>
           </FormGroup>
-          
+
           <SubmitButton
             type="submit"
             disabled={isSubmitting}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {isSubmitting ? t('contact.sending') : t('contact.send')}
+            {isSubmitting ? t("contact.sending") : t("contact.send")}
           </SubmitButton>
         </ContactForm>
       </ContactContainer>
-      
+
       <AnimatePresence>
         {notification.show && (
           <NotificationOverlay
@@ -587,17 +604,19 @@ const Contact: React.FC = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
               <NotificationIcon success={notification.success}>
                 {notification.success ? <FaCheck /> : <FaTimes />}
               </NotificationIcon>
               <NotificationTitle>
-                {notification.success ? t('contact.thankYou') : t('contact.sorry')}
+                {notification.success
+                  ? t("contact.thankYou")
+                  : t("contact.sorry")}
               </NotificationTitle>
               <NotificationMessage>{notification.message}</NotificationMessage>
               <NotificationButton onClick={closeNotification}>
-                {t('contact.close')}
+                {t("contact.close")}
               </NotificationButton>
             </NotificationBox>
           </NotificationOverlay>
