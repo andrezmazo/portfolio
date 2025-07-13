@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n/config";
@@ -95,13 +95,13 @@ function App() {
             <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
               <I18nextProvider i18n={i18n}>
                 <GlobalStyle />
-                <BrowserRouter>
+                <HashRouter>
                   <MainLayout>
                     <Routes>
                       <Route path="/" element={<Main />} />
                     </Routes>
                   </MainLayout>
-                </BrowserRouter>
+                </HashRouter>
               </I18nextProvider>
             </ThemeProvider>
           </ScrollProvider>
